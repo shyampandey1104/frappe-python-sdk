@@ -1,48 +1,15 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
 
 [project]
-name = "frappe-python-sdk"
-version = "1.2.0"
-description = "Modern, asynchronous & synchronous Python client SDK for Frappe Framework & ERPNext REST APIs with Pydantic validation, query builder, and CLI."
+name = "frappe_python_sdk"
+version = "1.0.0"
+description = "Frappe Python Sdk - Official Frappe Framework App"
+authors = [{ name = "Shyamkumar Pandey", email = "shyampandey1104@gmail.com" }]
+license = { text = "MIT" }
 readme = "README.md"
-requires-python = ">=3.9"
-license = "MIT"
-authors = [
-    { name = "Shyamkumar Bhupendra Pandey", email = "shyampandey1104@users.noreply.github.com" }
-]
-keywords = ["frappe", "erpnext", "sdk", "rest-api", "asyncio", "pydantic"]
-classifiers = [
-    "Development Status :: 5 - Production/Stable",
-    "Intended Audience :: Developers",
-    "Topic :: Software Development :: Libraries :: Python Modules",
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-]
+requires-python = ">=3.10"
 dependencies = [
-    "httpx>=0.25.0",
-    "pydantic>=2.0.0",
-    "typer>=0.9.0",
-    "rich>=13.0.0",
-    "tenacity>=8.2.0"
+    "frappe"
 ]
-
-[project.optional-dependencies]
-dev = [
-    "pytest>=7.4.0",
-    "pytest-asyncio>=0.21.0",
-    "pytest-mock>=3.11.0",
-    "ruff>=0.1.0"
-]
-
-[project.scripts]
-frappe-cli = "frappe_sdk.cli:app"
-
-[project.urls]
-Homepage = "https://github.com/shyampandey1104/frappe-python-sdk"
-Repository = "https://github.com/shyampandey1104/frappe-python-sdk"
