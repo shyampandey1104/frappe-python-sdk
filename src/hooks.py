@@ -4,7 +4,7 @@
 app_name = "src"
 app_title = "Frappe Python Sdk"
 app_publisher = "Shyamkumar Pandey"
-app_description = "Frappe Python Sdk for Frappe and ERPNext"
+app_description = "Frappe Python Sdk - Enterprise Multi-DocType Solution for Frappe & ERPNext"
 app_email = "shyampandey1104@gmail.com"
 app_license = "MIT"
 
@@ -16,16 +16,22 @@ app_include_js = "/assets/src/js/src.bundle.js"
 # Document Events
 # ---------------
 doc_events = {
-    "DocType Event": {
-        "on_submit": "src.engine.on_document_submit",
-        "on_cancel": "src.engine.on_document_cancel"
+    "Frappe Python Sdk Entry": {
+        "validate": "src.services.validator.EnterpriseValidationEngine.validate_compliance_rules",
+        "on_submit": "src.services.integration_service.EnterpriseIntegrationService.verify_remote_status"
     }
 }
 
-# Scheduled Tasks
-# ---------------
+# Scheduled Background Tasks
+# --------------------------
 scheduler_events = {
+    "hourly": [
+        "src.tasks.hourly_sync"
+    ],
     "daily": [
-        "src.engine.daily_scheduled_sync"
+        "src.tasks.daily_reconciliation"
+    ],
+    "weekly": [
+        "src.tasks.weekly_digest"
     ]
 }
